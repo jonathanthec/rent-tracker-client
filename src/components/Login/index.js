@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-apollo';
 import { USER_LOGIN } from './queries';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const Login = () => {
     const history = useHistory();
@@ -31,20 +31,19 @@ const Login = () => {
                     })}
                     placeholder="Username"
                 />
-                {errors.email && errors.email.message}
+                {errors.username && errors.username.message}
                 <input
                     name="password"
                     type="password"
                     ref={register({
-                        required: 'You must provide an username and a password'
+                        required: 'You must provide a password'
                     })}
                     placeholder="Password"
                 />
                 {errors.password && errors.password.message}
                 <div>
-                    <button type="submit">
-                        Submit
-                    </button>
+                    <button type="submit">Submit</button>
+                    <Link to="/"><button>Go Back Home</button></Link>
                 </div>
             </form>
         </div>
