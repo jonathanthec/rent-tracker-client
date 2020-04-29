@@ -6,7 +6,6 @@ const Navbar = () => {
     const history = useHistory();
     const username = localStorage.getItem("username") ? localStorage.getItem("username") : "";
     const logout = () => {
-        console.log('stupid')
         localStorage.clear("token");
         localStorage.clear("username");
         history.push('/');
