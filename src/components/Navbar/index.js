@@ -29,7 +29,7 @@ const Navbar = () => {
 }
 
 const NavContainer = styled.div`
-    background-color: #eee;
+    background-color: white;
 `;
 
 const GroupsContainer = styled.div`
@@ -46,11 +46,11 @@ const NavGroup = styled.div`
 `;
 
 const Button = styled.button`
-    background-color: #eee;
+    background-color: white;
     border: none;
     font-size: 14px;
     &:hover {
-        background-color: white;
+        background-color: #eee;
     }
   }
 `;
