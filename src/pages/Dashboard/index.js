@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Navbar from '../../components/Navbar';
+import { Link } from "react-router-dom"
 import { useQuery } from 'react-apollo';
 import { GET_PROPERTIES } from './queries';
+import Navbar from '../../components/Navbar';
 import PropertyList from './PropertyList';
 import Bridge from './assets/Bridge.jpeg';
 
@@ -13,10 +14,10 @@ const Dashboard = () => {
             <Navbar />
             <ContentContainer>
                 <WelcomeContainer>
-                    <h1 style={{ marginBottom: "-5px" }}>Welcome to Rent Tracker!</h1>
-                    <p style={{ marginBottom: "-10px" }}>You can use Rent Tracker to keep track of your rental records.</p>
-                    <p>Click the button below to add your properties!</p>
-                    <Button>Add New Property</Button>
+                    <h1 style={{ marginBottom: "-5px", marginLeft: "30px" }}>Welcome to Rent Tracker!</h1>
+                    <p style={{ marginBottom: "-10px", marginLeft: "30px" }}>You can use Rent Tracker to keep track of your rental records.</p>
+                    <p style={{ marginLeft: "30px" }}>Click the button below to add your properties!</p>
+                    <Button style={{ marginLeft: "30px" }}><Link to={`/addproperty`} style={{ textDecoration: 'none', color: 'white' }}>Add New Property</Link></Button>
                 </WelcomeContainer>
                 {data ? (
                     <PropertyList
@@ -48,7 +49,7 @@ const ContentContainer = styled.div`
 const WelcomeContainer = styled.div`
     width: 100%;
     margin-top: 30px;
-    padding: 20px 0 30px 60px;
+    padding: 20px 0 30px 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom"
 import styled from 'styled-components';
 
 const PropertyCard = props => {
@@ -16,7 +17,7 @@ const PropertyCard = props => {
                 <p style={{ marginBottom: "-10px" }}><b>City</b>: {property.city}</p>
                 <p style={{ marginBottom: "-10px" }}><b>State</b>: {property.state}</p>
                 <p><b>Zip Code</b>: {property.zip}</p>
-                <Button>Contracts and Payments Info</Button>
+                <Button><Link to={`/property/${property.id}`} style={{ textDecoration: 'none', color: 'white' }}>Contracts and Payments Info</Link></Button>
             </TextContainer>
             <MapContainer>
                 <iframe

@@ -7,20 +7,9 @@ const isAuthenticated = () => {
 
 export default function PrivateRoute({ component: Component, ...rest }) {
     return (
-        <Route
-            {...rest}
-            render={({ location }) =>
-                isAuthenticated() ? (
-                    <Component />
-                ) : (
-                        <Redirect
-                            to={{
-                                pathname: "/",
-                                state: { from: location }
-                            }}
-                        />
-                    )
-            }
+        <Route {...rest} render={(props) => (
+            isAuthenticated() ? <Component {...props} /> : <Redirect to="/login" />
+        )}
         />
     )
 }
