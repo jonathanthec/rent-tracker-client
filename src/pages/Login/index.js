@@ -3,6 +3,9 @@ import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-apollo';
 import { USER_LOGIN } from './queries';
 import { Link, useHistory } from 'react-router-dom';
+import Navbar from '../../components/Navbar';
+import styled from 'styled-components';
+import Ocean from './assets/Ocean.jpeg';
 
 const Login = () => {
     const history = useHistory();
@@ -22,33 +25,79 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <h4>Log In</h4>
+        <EverythingContainer>
+            <Navbar />
+            <h3>Log In</h3>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <input
-                    name="username"
-                    ref={register({
-                        required: 'You must provide an username'
-                    })}
-                    placeholder="Username"
-                />
-                {errors.username && errors.username.message}
-                <input
-                    name="password"
-                    type="password"
-                    ref={register({
-                        required: 'You must provide a password'
-                    })}
-                    placeholder="Password"
-                />
-                {errors.password && errors.password.message}
-                <div>
-                    <button type="submit">Submit</button>
-                    <Link to="/"><button>Go Back Home</button></Link>
-                </div>
+                <InputContainer>
+                    <Input
+                        name="username"
+                        ref={register({
+                            required: 'You must provide an username'
+                        })}
+                        placeholder="Username"
+                    />
+                    {errors.username && errors.username.message}
+                    <Input
+                        name="password"
+                        type="password"
+                        ref={register({
+                            required: 'You must provide a password'
+                        })}
+                        placeholder="Password"
+                    />
+                    {errors.password && errors.password.message}
+                </InputContainer>
+                <ButtonContainer>
+                    <Button type="submit">Submit</Button>
+                    <Button><Link to="/" style={{ textDecoration: 'none', color: 'white' }}>Go Back Home</Link></Button>
+                </ButtonContainer>
             </form>
-        </div>
+        </EverythingContainer>
     )
 }
 
 export default Login;
+
+const EverythingContainer = styled.div`
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url(${Ocean});
+    background-size: cover;
+`;
+
+const InputContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+
+const Input = styled.input`
+    width: 250px;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+`
+
+const ButtonContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+`
+
+const Button = styled.button`
+    color: white;
+    background-color: rgb(41, 172, 41);
+    width: 150px;
+    height: 35px;
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: 700;
+    margin-bottom: 10px;
+`;

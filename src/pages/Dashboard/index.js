@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Navbar from '../../components/Navbar/index';
+import Navbar from '../../components/Navbar';
 import { useQuery } from 'react-apollo';
 import { GET_PROPERTIES } from './queries';
 import PropertyList from './PropertyList';

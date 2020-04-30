@@ -19,10 +19,16 @@ const Navbar = () => {
                     </p>
                     <Button><Link style={{ textDecoration: 'none', color: 'black' }} to="/dashboard">Home</Link></Button>
                 </NavGroup>
-                <NavGroup>
-                    <Button>Signed In As {username}</Button>
-                    <Button onClick={logout} style={{ marginLeft: '10px' }}>Sign Out</Button>
-                </NavGroup>
+                {username ?
+                    <NavGroup>
+                        <Button>Signed In As {username}</Button>
+                        <Button onClick={logout} style={{ marginLeft: '10px' }}>Sign Out</Button>
+                    </NavGroup> :
+                    <NavGroup>
+                        <Button><Link style={{ textDecoration: 'none', color: 'black' }} to="/register">Register</Link></Button>
+                        <Button><Link style={{ textDecoration: 'none', color: 'black' }} to="/login">Login</Link></Button>
+                    </NavGroup>
+                }
             </GroupsContainer>
         </NavContainer>
     )
