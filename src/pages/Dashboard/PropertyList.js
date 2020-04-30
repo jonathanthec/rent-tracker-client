@@ -21,5 +21,5 @@ const CardsContainer = styled.div`
     flex-direction: column; 
     justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
-`
+    padding-bottom: 50px;
+`;

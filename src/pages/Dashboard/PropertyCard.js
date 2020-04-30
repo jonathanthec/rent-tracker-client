@@ -45,7 +45,7 @@ const CardContainer = styled.div`
     border: 1px solid #eee; 
     background-color: #eee;
     border-radius: 5px;
-`
+`;
 
 const TextContainer = styled.div`
     display: flex;
@@ -53,11 +53,11 @@ const TextContainer = styled.div`
     text-align: left;
     justify-content: center;
     margin-right: 20px;
-`
+`;
 
 const MapContainer = styled.div`
     margin-left: 20px;
-`
+`;
 
 const Button = styled.button`
     color: white;

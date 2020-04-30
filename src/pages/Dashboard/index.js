@@ -8,7 +8,8 @@ import PropertyList from './PropertyList';
 import Bridge from './assets/Bridge.jpeg';
 
 const Dashboard = () => {
-    const { data } = useQuery(GET_PROPERTIES);
+    const { data, refetch } = useQuery(GET_PROPERTIES);
+    refetch();
     return (
         <EverythingContainer>
             <Navbar />
@@ -36,6 +37,7 @@ export default Dashboard;
 const EverythingContainer = styled.div`
     background-image: url(${Bridge});
     background-size: cover;
+    width: 100%;
 `;
 
 const ContentContainer = styled.div`
