@@ -4,13 +4,12 @@ import Navbar from '../../components/Navbar/index';
 import { useQuery } from 'react-apollo';
 import { GET_PROPERTIES } from './queries';
 import PropertyList from './PropertyList';
-import MaterialTable from 'material-table';
+import Bridge from './assets/Bridge.jpeg';
 
 const Dashboard = () => {
-    const { data, refetch } = useQuery(GET_PROPERTIES);
-    if (data) console.log(data.getProperties)
+    const { data } = useQuery(GET_PROPERTIES);
     return (
-        <div>
+        <EverythingContainer>
             <Navbar />
             <ContentContainer>
                 <WelcomeContainer>
@@ -20,40 +19,23 @@ const Dashboard = () => {
                     <Button>Add New Property</Button>
                 </WelcomeContainer>
                 {data ? (
-                    <MaterialTable
-                        title=""
-                        data={data.getProperties}
-                        columns={[
-                            { title: 'Address', field: 'address' },
-                            { title: 'City', field: 'city' },
-                            { title: 'State', field: 'state' },
-                            { title: 'Zip Code', field: 'zip' }
-                        ]}
-                        options={{
-                            cellStyle: {
-                                fontSize: '1.4rem',
-                            },
-                            headerStyle: {
-                                fontSize: '1.4rem',
-                                backgroundColor: '#4690eb',
-                                color: '#FFF',
-                            },
-                            rowStyle: {
-                                backgroundColor: '#EEE',
-                            },
-                            emptyRowsWhenPaging: false,
-                            toolbarButtonAlignment: 'left',
-                        }}
+                    <PropertyList
+                        properties={data}
                     />
                 ) : (
                         <p>Loading</p>
                     )}
             </ContentContainer>
-        </div>
+        </EverythingContainer>
     )
 }
 
 export default Dashboard;
+
+const EverythingContainer = styled.div`
+    background-image: url(${Bridge});
+    background-size: cover;
+`;
 
 const ContentContainer = styled.div`
     width: 70%;
@@ -72,8 +54,9 @@ const WelcomeContainer = styled.div`
     justify-content: flex-start;
     align-content: center;
     text-align: left;
-    background-color: #eee;
+    background-color: white;
     font-family: Arial, Helvetica, sans-serif;
+    border-radius: 5px;
 `;
 
 const Button = styled.button`

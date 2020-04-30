@@ -1,30 +1,25 @@
 import React from 'react';
-import MaterialTable from 'material-table';
+import PropertyCard from './PropertyCard';
+import styled from 'styled-components';
 
 const PropertyList = props => {
-    const properties = props.properties;
-    console.log(properties);
+    const properties = props.properties.getProperties;
 
     return (
-        <div>
-            <MaterialTable
-                title=""
-                data={properties}
-                columns={[
-                    { id: 'ID', field: 'id' }
-                ]}
-            />
-        </div>
+        <CardsContainer>
+            {properties.map(property =>
+                <PropertyCard property={property} key={property.id} />
+            )}
+        </CardsContainer>
     )
 }
 
 export default PropertyList;
 
-//     < iframe
-// title = "map1"
-// width = "600"
-// height = "450"
-// frameborder = "0"
-// src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyDmv-m5Y408TUhS4VUYYYTdijnHex9eoiI&q=11340+166th+St,Cerritos,CA"
-// allowfullscreen
-//     />
+const CardsContainer = styled.div`
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+`
