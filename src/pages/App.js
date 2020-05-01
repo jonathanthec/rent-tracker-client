@@ -7,6 +7,8 @@ import Login from './Login';
 import Dashboard from './Dashboard';
 import Property from './Property';
 import AddProperty from './AddProperty';
+import EditProperty from './EditProperty';
+import DeleteProperty from './DeleteProperty';
 import '../styles/App.css';
 
 function App(props) {
@@ -19,6 +21,8 @@ function App(props) {
         <PrivateRoute exact path="/dashboard" {...props} component={Dashboard} />
         <PrivateRoute exact path="/property/:id" {...props} component={Property} />
         <PrivateRoute exact path="/addproperty" {...props} component={AddProperty} />
+        <PrivateRoute exact path="/property/:id/edit" {...props} component={EditProperty} />
+        <PrivateRoute exact path="/property/:id/delete" {...props} component={DeleteProperty} />
       </Switch>
     </div>
   );

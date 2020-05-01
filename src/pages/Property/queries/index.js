@@ -7,6 +7,7 @@ export const GET_ONE_PROPERTY = gql`
         getOneProperty(
             id: $id
         ) {
+            id
             address
             city
             state

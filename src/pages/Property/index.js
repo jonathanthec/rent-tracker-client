@@ -15,8 +15,8 @@ const Property = props => {
         }
     })
 
+    refetch();
     const contracts = data?.getOneProperty?.contracts;
-    console.log(contracts);
 
     return (
         <EverythingContainer>

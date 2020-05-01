@@ -90,7 +90,7 @@ const PaymentList = props => {
                     },
                     headerStyle: {
                         fontSize: '0.9rem',
-                        backgroundColor: '#3d67e3',
+                        backgroundColor: '#4690eb',
                         color: '#FFF',
                     },
                     emptyRowsWhenPaging: false,

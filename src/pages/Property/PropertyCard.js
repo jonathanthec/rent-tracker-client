@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 
 const PropertyCard = props => {
@@ -12,7 +13,10 @@ const PropertyCard = props => {
 
     return (
         <CardContainer>
-            <FaEdit /><FaTrashAlt />
+            <IconsContainer>
+                <Link to={`/property/${property.id}/edit`}><FaEdit style={{ marginRight: "10px" }} /></Link>
+                <Link to={`/property/${property.id}/delete`}><FaTrashAlt style={{ marginLeft: "10px" }} /></Link>
+            </IconsContainer>
             <TextContainer>
                 <p style={{ marginBottom: "-10px" }}><b>Address</b>: {property.address}</p>
                 <p style={{ marginBottom: "-10px" }}><b>City</b>: {property.city}</p>
@@ -53,3 +57,10 @@ const TextContainer = styled.div`
 
 const MapContainer = styled.div`
 `;
+
+const IconsContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    margin: 15px 10px 0 10px;
+    justify-content: center;
+`
