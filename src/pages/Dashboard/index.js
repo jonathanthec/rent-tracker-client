@@ -36,8 +36,9 @@ export default Dashboard;
 
 const EverythingContainer = styled.div`
     background-image: url(${Bridge});
+    background-repeat: repeat-y;
     background-size: cover;
-    width: 100%;
+    width: 100vw;
 `;
 
 const ContentContainer = styled.div`
